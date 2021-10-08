@@ -1,14 +1,10 @@
 var botao = document.querySelector("#adicionar-paciente") //documento é uma copia do html, meu DOM
 botao.addEventListener("click", function() {
     event.preventDefault() //não executa o eventos padroes
-    var fom = document.querySelector("#form")
+    var form = document.querySelector("#form")
     console.log("botao clicado, GRAÇAS A DEUS!!")
 
-    var nome = form.nome.value
-    var peso = form.peso.value 
-    var altura = form.altura.value
-    var gordura = form.gordura.value 
-
+    var paciente = obtendoDadosDoForm(form)
     var novaTr = document.createElement("tr") //criando uma tr
 
     //criando as td
@@ -37,3 +33,14 @@ botao.addEventListener("click", function() {
 
 
 })
+
+function obtendoDadosDoForm(form){
+    var paciente = {
+        nome: form.nome.value,
+        peso: form.peso.value ,
+        altura: form.altura.value,
+        gordura: form.gordura.value, 
+        imc: calcularIMC(form.peso.value, form.altura.value)
+    }
+    return paciente;
+}
