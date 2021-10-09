@@ -28,20 +28,21 @@ function obtendoDadosDoForm(form){
 function criaTr(paciente){
 
     var novaTr = document.createElement("tr") //criando uma tr
+    novaTr.classList.add("paciente")
 
     //criando as td
-    var tdNome = document.createElement("td")
-    var tdPeso = document.createElement("td")
-    var tdAltura = document.createElement("td")
-    var tdGordura = document.createElement("td")
-    var tdIMC = document.createElement("td")
+    var tdNome = montaTd(paciente.nome, "info-nome");
+    var tdPeso = montaTd(paciente.peso, "info-peso");
+    var tdAltura = montaTd(paciente.altura, "info-altura");
+    var tdGordura = montaTd(paciente.gordura, "info-gordura");
+    var tdIMC = montaTd(paciente.imc, "info-imc");
 
     //atribuindo valores ao meus tds
-    tdNome.textContent = paciente.nome
+    /*tdNome.textContent = paciente.nome
     tdPeso.textContent = paciente.peso 
     tdAltura.textContent = paciente.altura
     tdGordura.textContent = paciente.gordura 
-    tdIMC.textContent = paciente.imc
+    tdIMC.textContent = paciente.imc*/
 
     //adicionando as td na tr
     novaTr.appendChild(tdNome)
@@ -51,4 +52,12 @@ function criaTr(paciente){
     novaTr.appendChild(tdIMC)
 
     return novaTr;
+}
+
+function montaTd(dado,classe){
+    var td = document.createElement("td");
+    td.textContent = dado;
+    td.classList.add(classe);
+
+    return td;
 }
