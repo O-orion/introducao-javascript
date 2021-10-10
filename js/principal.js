@@ -18,10 +18,10 @@ for(let i = 0; i < pacientes.length; i++){
     var tdImc = paciente.querySelector(".info-imc")
     
     
-    var alturaValida = true;
-    var pesoValido = true
+    var alturaValida = validarAltura(altura);
+    var pesoValido = validarPeso(peso);
     
-    if(peso <= 0 || peso >= 300){
+    if(pesoValido){
         pesoValido = false;
         tdImc.textContent = "Peso Inválido!"
        // paciente.style.color = 'red';
@@ -30,7 +30,7 @@ for(let i = 0; i < pacientes.length; i++){
 
     }
     
-    if(altura <= 0 || altura >= 3){
+    if(alturaValida){
         alturaValida = false
         tdImc.textContent = "Altura Inválida!"
         paciente.classList.add("message_invalid") //message_invali é a classe css, que vai se atribuia á esse campo
@@ -42,6 +42,22 @@ for(let i = 0; i < pacientes.length; i++){
         tdImc.textContent = IMC //toFixed, ele é responsavel pela formatação dos números, estou dizendo que quereo apenas ducas casas depoi da virgula
         
     } 
+}
+
+function validarAltura(altura){
+    if(altura <= 0 || altura >= 3){
+        return true 
+    }else{
+        return false
+    }
+}
+
+function validarPeso(peso){
+    if(peso <= 0 || peso >= 300){
+        return true
+    }else{
+       return false
+    }
 }
 
 //Capturando o evento de click e passando uma função anonima
