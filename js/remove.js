@@ -6,7 +6,13 @@ tabela.addEventListener("dblclick",  function (event){
      // event.target.parentNode //capturando pai do evento -- queremos excluir a tr e não o td
       var eventoAlvo = event.target
       var paiDoEvento = eventoAlvo.parentNode
-      paiDoEvento.remove()
+      paiDoEvento.classList.add("fadeOut")
+
+      setTimeout(function() {
+          //o código só será executado quando for o seu tempo
+          paiDoEvento.remove()
+      }, 500) //500 e igual a  meio segundo, depois de meio segundo o código dentro desssa função sera executado
+
 })
 
 
