@@ -8,7 +8,7 @@ titulo.textContent = "JESUS CRISTO É O SENHOR!"
 
 //var paciente = document.querySelector("#primeiro-paciente")
 var pacientes = document.querySelectorAll(".paciente")
-var tBoy = document.querySelector("#tabela-pacientes")
+
 
 for(let i = 0; i < pacientes.length; i++){
     let paciente = pacientes[i]

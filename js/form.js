@@ -8,7 +8,7 @@ botao.addEventListener("click", function() {
 
     
     var paciente = obtendoDadosDoForm(form)
-    var pacienteTr = criaTr(paciente)
+
     var errosForm = validarForm(paciente)
 
     if(errosForm.length > 0){
@@ -16,14 +16,21 @@ botao.addEventListener("click", function() {
         return;
     }
    
-    //adicionando nova liha no tbody
-    tBoy.appendChild(pacienteTr)
+
+    adicionaNaTabela(paciente)
 
     //resetando o formulário
     form.reset() 
     var resetMensagem =  document.querySelector("#error-message")
     resetMensagem.innerHTML = ""
 })
+
+function adicionaNaTabela(paciente){
+    var pacienteTr = criaTr(paciente)
+    var tBoy = document.querySelector("#tabela-pacientes")
+    //adicionando nova liha no tbody
+    tBoy.appendChild(pacienteTr)
+}
 
 function obtendoDadosDoForm(form){
     var paciente = {
