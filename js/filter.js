@@ -13,7 +13,7 @@ campoFiltro.addEventListener("input", function ()  {
             var paciente = pacintes[i] //acessando o primeiro paciente dentro da lista de pacientes
             var tdNome = paciente.querySelector(".info-nome")
             var nome = tdNome.textContent
-            if( nome != this.value){
+            if( !expressao.test(nome)){
                 paciente.classList.add("invisivel")
             }else{
                 paciente.classList.remove("invisivel")
